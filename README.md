@@ -2,27 +2,36 @@
 
 [![tamsiree.com](https://img.shields.io/badge/%E6%8A%80%E6%9C%AF%E5%8D%9A%E5%AE%A2-Tamsiree-brightgreen.svg)](https://tamsiree.com/)  [![Stars](https://badgen.net/github/stars/tamsiree/RxTool)](https://ghbtns.com/github-btn.html?user=tamsiree&repo=rxtool&type=star)  [![RxTool](https://jitpack.io/v/tamsiree/RxTool.svg)](https://jitpack.io/#tamsiree/RxTool)  
 
-[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)  [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)  [![](https://img.shields.io/badge/platform-android-brightgreen.svg)](https://developer.android.com/index.html)  [![API](https://img.shields.io/badge/API-17%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=17)  [![Gradle-5.4.1](https://img.shields.io/badge/Gradle-5.4.1-brightgreen.svg)](https://img.shields.io/badge/Gradle-5.4.1-brightgreen.svg)  
+[![996.icu](https://img.shields.io/badge/link-996.icu-red.svg)](https://996.icu)  [![LICENSE](https://img.shields.io/badge/license-Anti%20996-blue.svg)](https://github.com/996icu/996.ICU/blob/master/LICENSE)  [![](https://img.shields.io/badge/platform-android-brightgreen.svg)](https://developer.android.com/index.html)  [![API](https://img.shields.io/badge/API-21%2B-blue.svg?style=flat)](https://android-arsenal.com/api?level=21)  [![Gradle-5.6.4](https://img.shields.io/badge/Gradle-5.6.4-brightgreen.svg)](https://img.shields.io/badge/Gradle-5.6.4-brightgreen.svg)
   
 ![image](https://cdn.jsdelivr.net/gh/Tamsiree/Assets@master/DeskTop/miku.png)
 
-	所谓：工欲善其事必先利其器！
-	`RxTool` 是 `Android` 开发过程经常需要用到各式各样的工具类集合，虽然大部分只需谷歌/百度一下就能找到。
-	但是有时候急需使用却苦苦搜寻不到，于是整理了自己平常用到的工具类，以便以后的使用。
+>	所谓：工欲善其事必先利其器！
+>
+>	`RxTool` 是 `Android` 开发过程经常需要用到各式各样的工具类集合，虽然大部分只需谷歌/百度一下就能找到。
+>
+>	但是有时候急需使用却苦苦搜寻不到，于是整理了自己平常用到的工具类，以便以后的使用。
 
 
 ---
 
 # 我的运行环境
-> Android Studio 3.5.2  
-> Build #AI-191.8026.42.35.5977832, built on October 31, 2019  
-> JRE: 1.8.0_202-release-1483-b49-5587405 amd64  
-> JVM: OpenJDK 64-Bit Server VM by JetBrains s.r.o  
-> Linux 5.3.11-1-MANJARO  
+
+> Android Studio 3.6
 >
-> targetSdkVersion 28  
-> [gradle-wrapper.properties文件内] distributionUrl 5.4.1  
-> [build.gradle文件内] gradle 3.5.2
+> Build #AI-192.7142.36.36.6200805, built on February 12, 2020
+>
+> Runtime version: 1.8.0_212-release-1586-b4-5784211 amd64
+>
+> VM: OpenJDK 64-Bit Server VM by JetBrains s.r.o
+>
+> Linux 5.4.23-1-MANJARO
+>
+> targetSdkVersion 29
+>
+> [gradle-wrapper.properties文件内] distributionUrl 5.6.4
+>
+> [build.gradle文件内] gradle 3.6.1
 
 ---
 
@@ -40,29 +49,36 @@ allprojects {
 ```
 
 ## Step 2.然后在 build.gradle(Module:app) 的 dependencies 添加:
+
 ```gradle
 dependencies {
   //基础工具库
-  implementation "com.github.tamsiree.RxTool:RxKit:v2.4.1"
+  implementation 'com.github.tamsiree.RxTool:RxKit:2.5.9'
   //UI库
-  implementation "com.github.tamsiree.RxTool:RxUI:v2.4.1"
-  //(依赖RxUI库时，需要额外依赖 cardview 库)
-      implementation 'com.android.support:cardview-v7:27.1.1'
+  implementation 'com.github.tamsiree.RxTool:RxUI:2.5.9'
   //相机库
-  implementation "com.github.tamsiree.RxTool:RxCamera:v2.4.1"
-  //功能库（Zxing扫描与生成二维码条形码 支付宝 微信）
-  implementation "com.github.tamsiree.RxTool:RxFeature:v2.4.1"
+  implementation 'com.github.tamsiree.RxTool:RxCamera:2.5.9'
+  //功能库（Zxing扫描与生成二维码条形码）
+  implementation 'com.github.tamsiree.RxTool:RxFeature:2.5.9'
   //ArcGis For Android工具库（API：100.1以上版本）
-  implementation "com.github.tamsiree.RxTool:RxArcGisKit:v2.4.1"
+  implementation 'com.github.tamsiree.RxTool:RxArcGisKit:2.5.9'
+  //支付模块(支付宝 微信)[暂为待优化模块，谨慎]
+  implementation 'com.github.tamsiree.RxTool:RxPay:2.5.9'
 }
 ```
 
-## Step 3.在Application中初始化 
-(注：v2.0.0以后版本是分多模块的版本)
+## Step 3.在Application中初始化
+
+
+> (注：2.0.0 以后版本是分多模块的版本)
+>
+> (注：2.4.0 版本全面升级到 AndroidX)
+>
+> (注：2.4.2 版本更改了库的包名)
+
 ```java
 RxTool.init(this);
 ```
-
 
 # API使用文档
 
@@ -71,13 +87,23 @@ RxTool.init(this);
 - [**[点我看文档]**](https://tamsiree.github.io/TechnicalResearch/Android/RxTool/Wiki/RxTool-Wiki)
 - 备选 [点我看文档](https://github.com/tamsiree/RxTool/wiki/RxTool-Wiki)
 
-
-
 # 更新日志
 > 因为自己用的关系，更新的频率可能有点快
 
 |  VERSION  |  Description  |
 | :-------: | ------------- |
+|   2.5.3   | 更新 RxUI 模块，新增TStepperIndicator步骤指示器，删除 CardView 依赖 |
+|   2.5.2   | 更新 RxUI 模块，新增TIndicator指示器 |
+|   2.5.1   | 更新 RxUI 模块，新增若干自定义View |
+|   2.5.0   | 优化所有自定义View，增加可预览功能 |
+|   2.4.9   | 更新项目配置文件，模块添加kotlin支持 |
+|   2.4.8   | 更新 RxKit 模块，更新了 RxCrashTool 工具类 |
+|   2.4.7   | 更新 RxUI 模块，更新了 Fragment 工具类 |
+|   2.4.6   | 更新 RxKit 模块，更新了 RxCrashTool 工具类，自定义崩溃模块 |
+|   2.4.5   | 更新 RxUI 模块，新增 TabLayout、TUnReadView 自定义View |
+|   2.4.4   | 更新 RxUI 模块，RxDialogWheelYearMonthDay 更名为 RxDialogDate  |
+|   2.4.3   | 优化 RxTitle 控件 |
+|   **2.4.2**   | 更改库的包名，完善若干已知BUG  |
 |   2.4.1   | 完善 RxArcGisKit 模块  |
 |   **2.4.0**   | **`全面升级到 Android X`**:<br>修复 RxToast 在 Android 9 上,连点只弹出一次的问题<br>修复 二维码扫描框的焦点偏离 问题<br>添加 生成二维码LOGO 功能<br>添加 RxQRCode 的空白边界设置方法<br>更新若干工具类  |
 |   2.3.9   | 完善 RxFeature 模块  |
